@@ -89,7 +89,7 @@ body {
 
         <div class="container2  width: 66rem;">
     
-                <h3>Not Registered ?</h3>
+                <h7>Not Registered ?</h7>
                 <button type="button" class="btn btn-outline-primary">Sign Up </button>
            
         </div>
