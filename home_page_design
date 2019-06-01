@@ -59,7 +59,10 @@
       <div class="footer">
           <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
           <p>
-            Footer
+            Project by : Team 頂呱呱  &nbsp;&nbsp;&nbsp;&nbsp; 
+            Copyright : No copyright, copy as you wish! &nbsp;&nbsp;&nbsp;&nbsp;
+            Contact : 0905617108 &nbsp;&nbsp;&nbsp;&nbsp;
+            Email address : anita_hu@mail.ncku.edu.tw
           </p>
         </div>
 
@@ -219,7 +222,7 @@
 
   <div class="row">
   
-                <div class="col-sm-7" style="color:rgba(199, 57, 156, 0.952);" ;ondblclick="Medium()">
+                <div class="col-sm-7" style="color:rgba(199, 57, 156, 0.952);" ondblclick="Medium()">
                       
                       <p class="h1" >
    
