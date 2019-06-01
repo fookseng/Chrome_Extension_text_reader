@@ -10,6 +10,7 @@
     <!-- <link rel="stylesheet" href="css.css"> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
+
         body  {
           background-image: url("1.jpg");
           background-color: #8ff010;
@@ -19,17 +20,52 @@
           background-repeat: no-repeat; /* Do not repeat the image */
           background-size: cover; /* Resize the background image to cover the entire container */
         }
+
+        .footer {
+          position: fixed;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          background-image: url("2.jpg");
+          background-color: red;
+          color: white;
+          text-align: center;
+        }
+
+        #myBtn {
+          display: none;
+          position: fixed;
+          bottom: 5px;
+          right: 5px;
+          z-index: 99;
+          font-size: 18px;
+          border: none;
+          outline: none;
+          background-color: red;
+          color: white;
+          cursor: pointer;
+          padding: 20px;
+          border-radius: 50px;
+}
+
+#myBtn:hover {
+  background-color: #555;
+}
         </style>
     <title>News Prettifier（Title）</title>
   </head>
-
-
-
   <body> 
-     <!-- <div class="bg"></div>  -->
-  
-<div class="container-fluid ">
+     
+      <div class="footer">
+          <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+          <p>
+            Footer
+          </p>
+        </div>
 
+        
+<div class="container-fluid ">
+    
 
    <div class="row">
 
@@ -78,7 +114,7 @@
 
 <div class="col-sm-1" >
             <div class="badge badge-light">
-                  <input type="radio" name ="radio_1" onclick="WhiteText()" checked > Light    
+                  <input type="radio" name ="radio_1" onclick="WhiteText()" > Light    
             </div>
             
 </div>  
@@ -144,9 +180,31 @@
                                             Mr Trump and his wife, Melania, sat alongside Japanese PM Shinzo Abe for the Summer Grand Sumo Tournament in Tokyo and Mr Trump later presented a prize to the winner.    
                                             Text: US President Donald Trump has attended a sumo wrestling tournament during his four-day visit to Japan, describing the event as "an incredible evening".
 
-                                            Mr Trump and his wife, Melania, sat alongside Japanese PM Shinzo Abe for the Summer Grand Sumo Tournament in Tokyo and Mr Trump later presented a prize to the winner.    
-                                             Text: US President Donald Trump has attended a sumo wrestling tournament during his four-day visit to Japan, describing the event as "an incredible evening".
-
+                                            MDonald Trump has attended a sumo wrestling tournament during his four-day visit to Japan, describing the event as "an incredible evening".
+                                               Mr Trump and his wife, Melania, sat alongside Japanese PM Shinzo Abe for the Summer Grand Sumo Tournament in Tokyo and Mr Trump later presented a prize to the winner.    
+                                               Text: US President Donald Trump has attended a sumo wrestling tournament during his four-day visit to Japan, describing the event as "an incredible evening".
+   
+                                               Mr Trump and his wife, Melania, sat alongside Japanese PM Shinzo Abe for the Summer Grand Sumo Tournament in Tokyo and Mr Trump later presented a prize to the winner.    
+                                                Text: US President Donald Trump has attended a sumo wrestling tournament during his four-day visit to Japan, describing the event as "an incredible evening".
+                                                Mr Trump and his wife, Melania, sat alongside Japanese PM Shinzo Abe for the Summer Grand Sumo Tournament in Tokyo and Mr Trump later presented a prize to the winner.    
+                                                Text: US President Donald Trump has attended a sumo wrestling tournament during his four-day visit to Japan, describing the event as "an incredible evening".
+    
+                                                M Donald Trump has attended a sumo wrestling tournament during his four-day visit to Japan, describing the event as "an incredible evening".
+                                                     Mr Trump and his wife, Melania, sat alongside Japanese PM Shinzo Abe for the Summer Grand Sumo Tournament in Tokyo and Mr Trump later presented a prize to the winner.    
+                                                     Text: US President Donald Trump has attended a sumo wrestling tournament during his four-day visit to Japan, describing the event as "an incredible evening".
+         
+                                                     Mr Trump and his wife, Melania, sat alongside Japanese PM Shinzo Abe for the Summer Grand Sumo Tournament in Tokyo and Mr Trump later presented a prize to the winner.    
+                                                      Text: US President Donald Trump has attended a sumo wrestling tournament during his four-day visit to Japan, describing the event as "an incredible evening".
+                                                      Mr Trump and his wife, Melania, sat alongside Japanese PM Shinzo Abe for the Summer Grand Sumo Tournament in Tokyo and Mr Trump later presented a prize to the winner.    
+                                                      Text: US President Donald Trump has attended a sumo wrestling tournament during his four-day visit to Japan, describing the event as "an incredible evening".
+          
+                                                      Mr Trump and his wife, Melania, sat alongside Japanese PM Shinzo Abe for the Summer Grand Sumo Tournament in Tokyo and Mr Trump later presented a prize to the winner.    
+                                                       Text: US President Donald Trump has attended a sumo wrestling tournament during his four-day visit to Japan, describing the event as "an incredible evening".
+                                                       Mr Trump and his wife, Melania, sat alongside Japanese PM Shinzo Abe for the Summer Grand Sumo Tournament in Tokyo and Mr Trump later presented a prize to the winner.    
+                                                       Text: US Preside
+                                               Mr Trump and his wife, Melania, sat alongside Japanese PM Shinzo Abe for the Summer Grand Sumo Tournament in Tokyo and Mr Trump later presented a prize to the winner.    
+                                                Text: US President Donald Trump has attended a sumo wrestling tournament during his four-day visit to Japan, describing the event as "an incredible evening".
+      
                                             Mr Trump and his wife, Melania, sat alongside Japanese PM Shinzo Abe for the Summer Grand Sumo Tournament in Tokyo and Mr Trump later presented a prize to the winner.    
                                 
                                               </p>
@@ -161,9 +219,9 @@
 
   <div class="row">
   
-                <div class="col-sm-7" ; style="color:rgba(199, 57, 156, 0.952);"; ondblclick="Medium()">
+                <div class="col-sm-7" style="color:rgba(199, 57, 156, 0.952);" ;ondblclick="Medium()">
                       
-                      <p class="h1">
+                      <p class="h1" >
    
                                  <dl>
                                  <dt>Author:</dt>
@@ -175,7 +233,7 @@
                     
                 <div class="col-md-auto">
                         
-                            <div class="d-flex bd-highlight mb-3" style="height: 200px;" >
+                            <div class="d-flex bd-highlight mb-3" style="height: 80px;" >
                                 <div class="p-2 flex-fill bd-highlight" ondblclick="Smaller()"  style="color:rgba(210, 247, 6, 0.952);">
                                         <p> Article scrapped from ：<a href="https://www.bbc.com/news/world-asia-48414141" class="alert-link" >Please Click Me ~ 请点击我 ~</a>
                                         </p>
@@ -185,6 +243,8 @@
                  </div>  
                      
   </div>
+
+  
 </div>
        
         
@@ -258,6 +318,22 @@ function GrayText()
 {  
   document.getElementById("demo1").style="color:rgba(179, 189, 209, 0.952);"
 }
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+    document.getElementById("myBtn").style.display = "block";
+  } else {
+    document.getElementById("myBtn").style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.documentElement.scrollTop = 0;
+}
+
 
 </script>
     
