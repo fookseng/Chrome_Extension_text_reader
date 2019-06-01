@@ -30,6 +30,7 @@
           background-color: red;
           color: white;
           text-align: center;
+          text-decoration-style: solid;
         }
 
         #myBtn {
