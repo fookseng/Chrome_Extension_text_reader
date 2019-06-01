@@ -53,6 +53,17 @@
       border-radius: 50px;
     }
 
+    #loginbutton {
+      position: fixed;
+      font-size: 18px;
+      border:lightcyan;
+      outline:lightgreen;
+      color: white;
+      padding: 10px;
+      border-radius: 90px;
+    }
+
+
     .login {
       position: absolute;
       text-align: center;
@@ -120,8 +131,7 @@
       <div class="col-sm-1 bg-dark">
         <div class="login">
           <div class="d-flex flex-row-reverse bd-highlight">
-            <button type="button" class="btn btn-outline-danger text-danger"><a href="/login/{{ .Article_ID }}">Please
-                click me to login</a></button>
+            <button type="button" id="loginbutton" class="btn btn-outline-danger text-danger"><a href="/login/{{ .Article_ID }}">Login</a></button>
           </div>
         </div>
       </div>
@@ -317,6 +327,12 @@
   <!-- Optional JavaScript -->
 
   <script>
+
+    var size = [0,1,2];
+    var current_size = 0;
+    var colour = [0,1,2,3];
+    var current_colour = 0;
+
 
     function DarkBack() {
       document.getElementById("demo").style = "background-color: rgba(11, 14, 12, 0.822);"
