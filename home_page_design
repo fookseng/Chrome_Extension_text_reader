@@ -297,6 +297,18 @@ function DarkBack()
 {
   document.getElementById("demo").style="background-color: rgba(11, 14, 12, 0.822);"
   document.getElementById("demo1").style="color:rgba(249, 250, 252, 0.952);"
+  if(document.getElementById("option1").checked==true)
+  {
+    document.getElementById("demo").style.fontSize = "xx-large";
+  }
+  else if(document.getElementById("option2").checked==true)
+  {
+    document.getElementById("demo").style.fontSize = "larger";
+  }
+  else if(document.getElementById("option3").checked==true)
+  {
+    document.getElementById("demo").style.fontSize = "xx-small";
+  }
 }
 
 function Large() 
@@ -328,18 +340,54 @@ function DarkBlueBack()
 {
   document.getElementById("demo").style="background-color: rgba(12, 6, 68, 0.822);"
   document.getElementById("demo1").style="color:rgba(179, 189, 209, 0.952);"
+  if(document.getElementById("option1").checked==true)
+  {
+    document.getElementById("demo").style.fontSize = "xx-large";
+  }
+  else if(document.getElementById("option2").checked==true)
+  {
+    document.getElementById("demo").style.fontSize = "larger";
+  }
+  else if(document.getElementById("option3").checked==true)
+  {
+    document.getElementById("demo").style.fontSize = "xx-small";
+  }
 }
 
 function GrayBack() 
 {
   document.getElementById("demo").style="background-color: rgba(192, 189, 212, 0.822);"
   document.getElementById("demo1").style="color:rgba(13, 14, 13, 0.911);"
+  if(document.getElementById("option1").checked==true)
+  {
+    document.getElementById("demo").style.fontSize = "xx-large";
+  }
+  else if(document.getElementById("option2").checked==true)
+  {
+    document.getElementById("demo").style.fontSize = "larger";
+  }
+  else if(document.getElementById("option3").checked==true)
+  {
+    document.getElementById("demo").style.fontSize = "xx-small";
+  }
 }
 
   function WhiteBack() 
 {
   document.getElementById("demo").style="background-color: rgba(249, 248, 252, 0.822);"
   document.getElementById("demo1").style="color:rgba(13, 14, 13, 0.911);"
+  if(document.getElementById("option1").checked==true)
+  {
+    document.getElementById("demo").style.fontSize = "xx-large";
+  }
+  else if(document.getElementById("option2").checked==true)
+  {
+    document.getElementById("demo").style.fontSize = "larger";
+  }
+  else if(document.getElementById("option3").checked==true)
+  {
+    document.getElementById("demo").style.fontSize = "xx-small";
+  }
 }
 
 function DarkText() 
