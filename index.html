@@ -10,6 +10,9 @@
   <!-- <link rel="stylesheet" href="css.css"> -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="jquery-3.4.0.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+ 
   <style>
     body {
       background-image: url("12.jpg");
@@ -171,22 +174,22 @@
                 
                                            
                         <div class="badge badge-dark">
-                          <input type="radio" name="radio_1" onclick="DarkBack()"> Dark
+                          <input type="radio" id="darkbut" name="radio_1" onclick="DarkBack()"> Dark
                         </div>
                       
                                      
                         <div class="badge badge-primary">
-                          <input type="radio" name="radio_1" onclick="DarkBlueBack()" on> Blue
+                          <input type="radio" id="bluebut" name="radio_1" onclick="DarkBlueBack()"> Blue
                         </div>
                 
                                            
                         <div class="badge badge-light">
-                          <input type="radio" name="radio_1" onclick="WhiteBack()" checked> Light
+                          <input type="radio" id="whitebut" name="radio_1" onclick="WhiteBack()" checked> Light
                         </div>
                                
                       
                         <div class="badge badge-secondary">
-                          <input type="radio" name="radio_1" onclick="GrayBack()"> Gray
+                          <input type="radio" id="graybut" name="radio_1" onclick="GrayBack()"> Gray
                         </div>
 
 
@@ -219,10 +222,14 @@
                                               <br>
 
                                 <label class="btn" active>
-                                                    <div onclick="Savestyle()">
-                                                            <button type="button" class="btn btn-outline-info">Save</button>
-                                                    </div>
+                                                   
+                                          <button type="button" class=" btn btn-outline-info" onclick="DarkBack()"  >Save</button>
+                                                    
                                                   </label>
+
+                                                  <!--   .....................   -->
+                                                 
+                                                  <!--   .....................   -->
                         </div>
                                 
                               
@@ -350,15 +357,66 @@
   <script>
 
     var size = [0,1,2];
-    var current_size = 0;
     var colour = [0,1,2,3];
-    var current_colour = 0;
 
-    
+   // var current_size = 1 ;
+   // var current_colour = 3 ;
 
-    function DarkBack() {
-      document.getElementById("demo").style = "background-color: rgba(11, 14, 12, 0.822);"
-      document.getElementById("demo1").style = "color:rgba(249, 250, 252, 0.952);"
+    if( current_size== 2) {
+      
+      document.getElementById("option1").checked = true;
+      Large();
+      
+    }
+    if(current_size == 1) {
+      
+      document.getElementById("option2").checked = true;
+      Medium();
+      
+    }
+    if(current_size == 0) {
+      
+      document.getElementById("option3").checked = true;
+      Small()
+      
+    }
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    if(current_colour == 3) {
+      
+      document.getElementById("graybut").checked = true;
+      GrayBack();
+      
+    }
+    if(current_colour == 2) {
+      
+      document.getElementById("bluebut").checked = true;
+      DarkBlueBack();
+      
+    }
+    if(current_colour == 1) {
+      
+      document.getElementById("darkbut").checked = true;
+      DarkBack()
+      
+    }
+    if(current_colour == 0) {
+      
+      document.getElementById("whitebut").checked = true;
+      WhiteBack() 
+    }
+
+    function Savestyle()
+    {
+      // submit current_colour and current_size.
+    }
+
+/* ...................................................................................................*/
+    function WhiteBack() {
+      document.getElementById("demo").style = "background-color: rgba(249, 248, 252, 0.822);"
+      document.getElementById("demo1").style = "color:rgba(13, 14, 13, 0.911);"
+
+       current_colour = 0;
+
       if (document.getElementById("option1").checked == true) {
         document.getElementById("demo").style.fontSize = "xx-large";
       }
@@ -370,29 +428,30 @@
       }
     }
 
-    function Large() {
-      document.getElementById("demo").style.fontSize = "xx-large";
+    function DarkBack() {
+      document.getElementById("demo").style = "background-color: rgba(11, 14, 12, 0.822);"
+      document.getElementById("demo1").style = "color:rgba(249, 250, 252, 0.952);"
+
+      current_colour = 1;
+
+      if (document.getElementById("option1").checked == true) {
+        document.getElementById("demo").style.fontSize = "xx-large";
+      }
+      else if (document.getElementById("option2").checked == true) {
+        document.getElementById("demo").style.fontSize = "larger";
+      }
+      else if (document.getElementById("option3").checked == true) {
+        document.getElementById("demo").style.fontSize = "xx-small";
+      }
     }
 
-    function Small() {
-      document.getElementById("demo").style.fontSize = "xx-small";
-    }
-
-    function Origin() {
-      document.getElementById("demo").style.fontSize = "initial";
-    }
-
-    function Medium() {
-      document.getElementById("demo").style.fontSize = "larger";
-    }
-
-    function Smaller() {
-      document.getElementById("demo").style.fontSize = "smaller";
-    }
 
     function DarkBlueBack() {
       document.getElementById("demo").style = "background-color: rgba(12, 6, 68, 0.822);"
       document.getElementById("demo1").style = "color:rgba(179, 189, 209, 0.952);"
+
+      current_colour = 2;
+
       if (document.getElementById("option1").checked == true) {
         document.getElementById("demo").style.fontSize = "xx-large";
       }
@@ -407,6 +466,9 @@
     function GrayBack() {
       document.getElementById("demo").style = "background-color: rgba(192, 189, 212, 0.822);"
       document.getElementById("demo1").style = "color:rgba(13, 14, 13, 0.911);"
+
+      current_colour = 3;
+
       if (document.getElementById("option1").checked == true) {
         document.getElementById("demo").style.fontSize = "xx-large";
       }
@@ -418,19 +480,36 @@
       }
     }
 
-    function WhiteBack() {
-      document.getElementById("demo").style = "background-color: rgba(249, 248, 252, 0.822);"
-      document.getElementById("demo1").style = "color:rgba(13, 14, 13, 0.911);"
-      if (document.getElementById("option1").checked == true) {
-        document.getElementById("demo").style.fontSize = "xx-large";
-      }
-      else if (document.getElementById("option2").checked == true) {
-        document.getElementById("demo").style.fontSize = "larger";
-      }
-      else if (document.getElementById("option3").checked == true) {
-        document.getElementById("demo").style.fontSize = "xx-small";
-      }
+    
+
+/* ...................................................................................................*/
+
+    function Large() {
+      document.getElementById("demo").style.fontSize = "xx-large";
+       size = 2;
     }
+
+    function Small() {
+      size = 0;
+      document.getElementById("demo").style.fontSize = "xx-small";
+    }
+
+    function Origin() {
+      document.getElementById("demo").style.fontSize = "initial";
+    }
+
+    function Medium() {
+       size = 1;
+      document.getElementById("demo").style.fontSize = "larger";
+    }
+
+    function Smaller() {
+      document.getElementById("demo").style.fontSize = "smaller";
+    }
+
+    
+
+/* ...................................................................................................*/
 
     function DarkText() {
       document.getElementById("demo1").style = "color:rgba(13, 14, 13, 0.911);"
@@ -448,6 +527,10 @@
       document.getElementById("demo1").style = "color:rgba(179, 189, 209, 0.952);"
     }
 
+
+/* ...................................................................................................*/
+
+
     window.onscroll = function () { scrollFunction() };
 
     function scrollFunction() {
@@ -463,23 +546,13 @@
       document.documentElement.scrollTop = 0;
     }
 
+    function Checkstyle(){
+         current_size=2 ;
+         current_colour=2 ;
 
-    window.onscroll = function () { scrollFunction() };
+    }
 
-function scrollFunction() {
-  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-    document.getElementById("myBtn").style.display = "block";
-  } else {
-    document.getElementById("myBtn").style.display = "none";
-  }
-}
-
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-  document.documentElement.scrollTop = 0;
-}
-
-  </script>
+     </script>
 
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
