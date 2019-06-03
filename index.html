@@ -13,10 +13,23 @@
   <script src="jquery-3.4.0.min.js"></script>
   <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
  
+  
   <style>
+    @keyframes fade {
+    0%,
+    50% {
+      opacity:0;
+      transform: scale(0);
+      }
+    }
+
+    .container {
+        animation: fade 1s;
+        display: block;
+    }
     body {
-      background-image: url("12.jpg");
-      background-color: #f9faf8;
+      background-image: url("index4.jpg");
+      background-color: #03202e;
       background-repeat: no-repeat;
       height: auto;
       /* You must set a specified height */
@@ -30,7 +43,7 @@
 
     .footer {
     
-        position: fixed;
+      position: fixed;
       left: 0;
       bottom: 0;
       width: 100%;
@@ -59,12 +72,12 @@
 
     #logoutbutton {
       position: absolute;
-      font-size: 18px;
-      border:lightcyan;
-      outline:lightgreen;
-      color: white;
-      padding: 20px;
-      border-radius: 90px
+      font-size: 14px;
+      padding: 10px;
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      z-index: 99;
     }
 
     #demo1 {
@@ -99,7 +112,17 @@
       background-color: #555;
     }
 
+    #titletext {
+      padding: 20px;
+      border:rgb(5, 139, 139);
+      outline:rgb(88, 6, 10);
+      color: rgb(233, 110, 110);
+      border-radius: 90px
+    }
+
   </style>
+
+
   <title>News Prettifier（Title）</title>
 </head>
 <!-- ................................................................................... -->
@@ -115,45 +138,37 @@
 <!-- ................................................................................... -->
     <div class="row">
 
-      <div class="col-sm-11  bg-dark">
-
-        <div class="p-20 flex-lg-{grow|shrink}-1 bd-highlight">
-
-          <div class="p-3 mb-3 text-white" ; ondblclick="Origin()">
-            <h1>In pictures: Donald Trump enjoys sumo tournament in Japan
-              
+      <div class="col-sm-11 ">
+          <div class="p-3 mb-3" id="titletext"; ondblclick="Origin()">
+            <h1>{{.Current_Article.Title}}             
             </h1>
           </div>
-        </div>
       </div>
-
-      <div class="col-sm-1 bg-dark">
-        <div class="logout">
-          <div class="d-flex flex-row-reverse bd-highlight">
-            <button type="button" id="logoutbutton" class="btn btn-outline-danger text-danger"><a href="/logout/{{ Current_Article.Artical_ID }}">Log Out</a></button>
+   
+      <div class="logout">
+          <div class="d-flex flex-row-reverse " >
+              <button type="button" class="btn btn-outline-success" id="logoutbutton"><a href="/logout/{{ Current_Article.Artical_ID }}">Log Out</a></button>  
           </div>
-        </div>
       </div>
 
-    </div>
   </div>
 
-  <!-- ................................................................................... -->
+  <!-- ...................................from here................................................ -->
 
 
   <div class="container" >
-        <div class="row">
+        <div class="row" >
           <div class="col-sm-2" id="userinfo">
               
                 <div style="color:rgba(196, 238, 8, 0.952);" ; ondblclick="Small()">
                         <p>Welcome </p>
-                        <p> C.F.Seng </p>
+                        <p>{{ .Owner }} </p>
                         <br>
                         
                       </div>
 
 
-                      <div style="color:rgba(175, 66, 142, 0.952);" ; ondblclick="Small()">
+                      <div style="color:rgba(245, 221, 7, 0.952);" ; ondblclick="Small()">
                             <p>History </p>                           
                           </div>
                       <select>
@@ -165,14 +180,12 @@
                         
                         <br>
                         <br>
-                        <div style="color:rgba(8, 238, 77, 0.952);" ; ondblclick="Small()">
-                               
-                                
-                            <p>Style selection</p>
-                         
+                        <div style="color:rgba(8, 238, 77, 0.952);" ; ondblclick="Small()">                               
+                            <p>Style selection</p>                         
                         </div>
-                
-                                           
+              
+                        
+                        
                         <div class="badge badge-dark">
                           <input type="radio" id="darkbut" name="radio_1" onclick="DarkBack()"> Dark
                         </div>
@@ -200,30 +213,25 @@
                                         <p>Size selection</p>
                                        
                                       </div>
-                                  <label class="btn btn-secondary ">
-                                        
-                                        <div onclick="Large()">
-                                          <input type="radio" name="options" id="option1" autocomplete="off">Large
-                                        </div>
-                                      </label>
+                                      <label for="option1" style="color: gold">
+                                          <input type="radio"   name="radio" id="option1" onclick="Large()" autocomplete="off">Large
+                                         </label>
 
-                                 <label class="btn btn-secondary" active>
-                                            <div onclick="Medium()">
-                                              <input type="radio" name="options" id="option2" autocomplete="off" checked>Medium
-                                            </div>
-                                          </label>
+                                         <label for="option2" style="color: gold">                  
+                                          <input type="radio"   name="radio" id="option2" onclick="Medium()" autocomplete="off" checked>Medium
+                                        </label>  
 
-                                 <label class="btn btn-secondary">
-                                                <div onclick="Small()">
-                                                  <input type="radio" name="options" id="option3" autocomplete="off">Small
-                                                </div>
-                                              </label>
+                                        <label for="option3" style="color: gold">  
+                                          <input type="radio"  name="radio" id="option3"  onclick="Small()" autocomplete="off">Small
+                                         </label>
+                                          
+                                          
                                               <br>
                                               <br>
 
                                 <label class="btn" active>
                                                    
-                                          <button type="button" class=" btn btn-outline-info" onclick="DarkBack()"  >Save</button>
+                                          <button type="button" id="savebut" class="btn btn-outline-warning" >Save Style</button>
                                                     
                                                   </label>
 
@@ -241,68 +249,7 @@
                 <div id="demo" style="height: auto; background-color: rgba(249, 248, 252, 0.822); ">
                         <div class="h-100 d-inline-block" style="width:600px;">
                           <div id="demo1" style="color:rgba(1, 5, 14, 0.952);">
-                            <p> Text: US President Donald Trump has attended a sumo wrestling tournament during his four-day visit to
-                              Japan, describing the event as "an incredible evening".
-              
-                              Mr Trump and his wife, Melania, sat alongside Japanese PM Shinzo Abe for the Summer Grand Sumo
-                              Tournament in Tokyo and Mr Trump later presented a prize to the winner.
-                              Text: US President Donald Trump has attended a sumo wrestling tournament during his four-day visit to
-                              Japan, describing the event as "an incredible evening".
-              
-                              Mr Trump and his wife, Melania, sat alongside Japanese PM Shinzo Abe for the Summer Grand Sumo
-                              Tournament in Tokyo and Mr Trump later presented a prize to the winner.
-                              Text: US President Donald Trump has attended a sumo wrestling tournament during his four-day visit to
-                              Japan, describing the event as "an incredible evening".
-                            </p>
-                            <p>
-                              MDonald Trump has attended a sumo wrestling tournament during his four-day visit to Japan, describing
-                              the event as "an incredible evening".
-                              Mr Trump and his wife, Melania, sat alongside Japanese PM Shinzo Abe for the Summer Grand Sumo
-                              Tournament in Tokyo and Mr Trump later presented a prize to the winner.
-                              Text: US President Donald Trump has attended a sumo wrestling tournament during his four-day visit to
-                              Japan, describing the event as "an incredible evening".
-              
-                              Mr Trump and his wife, Melania, sat alongside Japanese PM Shinzo Abe for the Summer Grand Sumo
-                              Tournament in Tokyo and Mr Trump later presented a prize to the winner.
-                              Text: US President Donald Trump has attended a sumo wrestling tournament during his four-day visit to
-                              Japan, describing the event as "an incredible evening".
-                              Mr Trump and his wife, Melania, sat alongside Japanese PM Shinzo Abe for the Summer Grand Sumo
-                              Tournament in Tokyo and Mr Trump later presented a prize to the winner.
-                              Text: US President Donald Trump has attended a sumo wrestling tournament during his four-day visit to
-                              Japan, describing the event as "an incredible evening".
-                            </p>
-                            <p>
-                              M Donald Trump has attended a sumo wrestling tournament during his four-day visit to Japan, describing
-                              the event as "an incredible evening".
-                              Mr Trump and his wife, Melania, sat alongside Japanese PM Shinzo Abe for the Summer Grand Sumo
-                              Tournament in Tokyo and Mr Trump later presented a prize to the winner.
-                              Text: US President Donald Trump has attended a sumo wrestling tournament during his four-day visit to
-                              Japan, describing the event as "an incredible evening".
-              
-                              Mr Trump and his wife, Melania, sat alongside Japanese PM Shinzo Abe for the Summer Grand Sumo
-                              Tournament in Tokyo and Mr Trump later presented a prize to the winner.
-                              Text: US President Donald Trump has attended a sumo wrestling tournament during his four-day visit to
-                              Japan, describing the event as "an incredible evening".
-                              Mr Trump and his wife, Melania, sat alongside Japanese PM Shinzo Abe for the Summer Grand Sumo
-                              Tournament in Tokyo and Mr Trump later presented a prize to the winner.
-                              Text: US President Donald Trump has attended a sumo wrestling tournament during his four-day visit to
-                              Japan, describing the event as "an incredible evening".
-              
-                              Mr Trump and his wife, Melania, sat alongside Japanese PM Shinzo Abe for the Summer Grand Sumo
-                              Tournament in Tokyo and Mr Trump later presented a prize to the winner.
-                              Text: US President Donald Trump has attended a sumo wrestling tournament during his four-day visit to
-                              Japan, describing the event as "an incredible evening".
-                              Mr Trump and his wife, Melania, sat alongside Japanese PM Shinzo Abe for the Summer Grand Sumo
-                              Tournament in Tokyo and Mr Trump later presented a prize to the winner.
-                              Text: US Preside
-                              Mr Trump and his wife, Melania, sat alongside Japanese PM Shinzo Abe for the Summer Grand Sumo
-                              Tournament in Tokyo and Mr Trump later presented a prize to the winner.
-                              Text: US President Donald Trump has attended a sumo wrestling tournament during his four-day visit to
-                              Japan, describing the event as "an incredible evening".
-              
-                              Mr Trump and his wife, Melania, sat alongside Japanese PM Shinzo Abe for the Summer Grand Sumo
-                              Tournament in Tokyo and Mr Trump later presented a prize to the winner.
-              
+                            <p> {{.Content}}
                             </p>
                             
                           </div>
@@ -326,7 +273,7 @@
 
           <dl>
             <dt>Author:</dt>
-            <dd>- Kevin Durant</dd>
+            <dd>- {{.Current_Article.Author}}</dd>
           </dl>
         </p>
 
@@ -336,7 +283,7 @@
 
         <div class="d-flex bd-highlight mb-3" style="height: 80px;">
           <div class="p-2 flex-fill bd-highlight" ondblclick="Smaller()" style="color:rgba(210, 247, 6, 0.952);">
-            <p> Article scrapped from ：<a href="https://www.bbc.com/news/world-asia-48414141" class="alert-link">Please
+            <p> Article scrapped from ：<a href="{{.Current_Article.Origin}}" class="alert-link">Please
                 Click Me ~ 请点击我 ~</a>
             </p>
           </div>
@@ -405,11 +352,7 @@
       WhiteBack() 
     }
 
-    function Savestyle()
-    {
-      // submit current_colour and current_size.
-    }
-
+    
 /* ...................................................................................................*/
     function WhiteBack() {
       document.getElementById("demo").style = "background-color: rgba(249, 248, 252, 0.822);"
@@ -545,12 +488,17 @@
     function topFunction() {
       document.documentElement.scrollTop = 0;
     }
-
-    function Checkstyle(){
-         current_size=2 ;
-         current_colour=2 ;
-
-    }
+  
+    $(document).ready(function(){
+  $("#savebut").click(function(){
+    $.post("demo_test_post.asp",
+    {
+      current_size: "{{ .Size }}",
+      current_colour: "{{ .Color }}"
+    },
+    );
+  });
+});
 
      </script>
 
