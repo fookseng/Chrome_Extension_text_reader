@@ -206,9 +206,7 @@
     <nav id="navb" class="navbar navbar-light" >
       <a class="navbar-brand" href="#">
         <img src="home.jpg" width="30" height="30" class="d-inline-block align-top" alt="">&nbsp;&nbsp;&nbsp;&nbsp;
-        <span class="navbar-text" id="navbartxt">
-          Welcome, {{ .Owner }}
-        </span>
+        <p class="navbar-text" id="navt"> Welcome, {{ .Owner }}</p>         
       </a>
       <select onchange="window.location.href=this.value;">
         {{range .Articles}}
@@ -292,7 +290,7 @@
                   <button type="button" id="savebut" class="btn btn-outline-danger">Save Style</button>
                 </label>
               </div>
-              
+
             </div>
           </div>
         </div>
@@ -408,7 +406,8 @@
   function WhiteBack() {
     document.body.style="background-color: rgb(255, 255, 255);" 
     document.getElementById("navb").style="background-color:rgb(246,247, 235);"
-    document.getElementById("navb").className="navbar navbar-light;"
+    document.getElementById("navt").style = "color:rgb(15, 11, 1);"
+
      
     DarkText();
 
@@ -428,7 +427,7 @@
     function DarkBack() {
       document.body.style = "background-color:rgb(50, 50, 50);"
       document.getElementById("navb").style="background-color:rgb(35, 35, 35);"
-      document.getElementById("navb").className="navbar navbar-light;"
+      document.getElementById("navt").style = "color:rgb(229, 227, 236);"
       WhiteText();
       current_colour = 1;
 
@@ -447,7 +446,7 @@
     function DarkBlueBack() {
       document.body.style = "background-color:rgb(2, 2, 75);";
       document.getElementById("navb").style="background-color:rgb(6, 6, 41);"
-      document.getElementById("navb").className="navbar navbar-light;"
+      document.getElementById("navt").style = "color:rgb(229, 227, 236);"
       GrayText();
       current_colour = 2;
 
@@ -465,7 +464,7 @@
     function GrayBack() {
       document.body.style = "background-color: rgb(219, 223, 224);";
       document.getElementById("navb").style="background-color:rgb(199, 203, 204);"
-      document.getElementById("navb").className="navbar navbar-light;"
+      document.getElementById("navt").style = "color:rgb(15, 11, 1);"
       DarkText();
 
       current_colour = 3;
