@@ -64,7 +64,8 @@
 }
 
 .dark {
-  border-color: rgb(34, 2, 2);
+  background-color: rgb(238, 243, 245);
+  border-color: rgba(1, 10, 1, 0.952);
   color: rgb(0, 8, 0); 
   width:67px;
 }
@@ -75,7 +76,8 @@
   box-shadow: 0 10px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
 .light {
-  border-color: rgb(220, 235, 11);
+  background-color: rgb(238, 243, 245);
+  border-color: rgba(237, 253, 3, 0.904);
   color: rgba(24, 4, 95, 0.801);
   width:67px;
 }
@@ -86,8 +88,9 @@
   box-shadow: 0 10px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
 .blue {
-  border-color: rgb(220, 235, 11);
-  color: rgba(55, 3, 241, 0.685);
+  background-color: rgb(240, 245, 247);
+  border-color: rgb(235, 11, 11);
+  color: rgba(27, 3, 241, 0.932);
   width:67px;
 }
 
@@ -97,7 +100,8 @@
   box-shadow: 0 10px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
 .gray {
-  border-color: rgb(220, 235, 11);
+  background-color: rgb(240, 245, 247);
+  border-color: rgb(4, 232, 248);
   color: rgb(41, 44, 41);
   width:67px;
 }
@@ -178,16 +182,16 @@
         <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
     </div>
 
-    <nav class="navbar navbar-light bg-warning">
+    <nav id="navb" class="navbar navbar-light" >
       <a class="navbar-brand" href="#">
         <img src="home.jpg" width="30" height="30" class="d-inline-block align-top" alt="">&nbsp;&nbsp;&nbsp;&nbsp;
-        <span class="navbar-text">
+        <span class="navbar-text" id="navbartxt">
           Welcome, {{ .Owner }}
         </span>
       </a>
-      <select>
+      <select onchange="window.location.href=this.value;">
         {{range .Articles}}
-        <option>{{ .Article_ID }}</option>
+        <option value="/index/{{ .Article_ID }}">{{ .Title }}</option>
         {{end}}
       </select>
       <form class="form-inline">
@@ -281,8 +285,8 @@
     // var size = [0,1,2];
     // var colour = [0,1,2,3];
 
-     var current_size = {{ .Size }};
-     var current_colour = {{ .Color }} ;
+     //var current_size = {{ .Size }};
+     //var current_colour = {{ .Color }} ;
 
     //console.log(current_colour);
         var width = $(document).width();
@@ -360,7 +364,7 @@
 
     function WhiteText() {
       document.getElementById("text1").style = "color:rgb(218, 230, 230);"
-      document.getElementById("titletext").style =  "color:rgb(218, 230, 230);"
+      document.getElementById("titletext").style = "color:rgb(218, 230, 230);"
     }
 
     function GrayText() {
@@ -371,7 +375,10 @@
   /* .....................................background colour..............DONE................................................*/
   
   function WhiteBack() {
-    document.body.style="background-color: rgb(255, 255, 255);" ;
+    document.body.style="background-color: rgb(255, 255, 255);" 
+    document.getElementById("navb").style="background-color:rgb(246,247, 235);"
+    document.getElementById("navb").className="navbar navbar-light;"
+     
     DarkText();
 
    current_colour = 0;
@@ -388,7 +395,9 @@
     }
 
     function DarkBack() {
-      document.body.style = "background-color:rgb(50, 50, 50);";
+      document.body.style = "background-color:rgb(50, 50, 50);"
+      document.getElementById("navb").style="background-color:rgb(35, 35, 35);"
+      document.getElementById("navb").className="navbar navbar-light;"
       WhiteText();
       current_colour = 1;
 
@@ -405,7 +414,9 @@
 
 
     function DarkBlueBack() {
-      document.body.style = "background-color: rgb(29, 131, 179);";
+      document.body.style = "background-color:rgb(2, 2, 75);";
+      document.getElementById("navb").style="background-color:rgb(6, 6, 41);"
+      document.getElementById("navb").className="navbar navbar-light;"
       GrayText();
       current_colour = 2;
 
@@ -421,7 +432,9 @@
     }
 
     function GrayBack() {
-      document.body.style = "background-color: rgb(218, 221, 218);";
+      document.body.style = "background-color: rgb(219, 223, 224);";
+      document.getElementById("navb").style="background-color:rgb(199, 203, 204);"
+      document.getElementById("navb").className="navbar navbar-light;"
       DarkText();
 
       current_colour = 3;
@@ -491,9 +504,9 @@
  /* .........................................DONE..........................................................*/
 
     $(document).ready(function () {
-      //console.log("im here");
+      console.log("im here");
       $("#savebut").click(function () {
-        //console.log("click");
+        console.log("click");
         $.ajax({
           type: "POST",
           url: "/article_settings",
@@ -508,7 +521,6 @@
   </script>
 
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
     crossorigin="anonymous"></script>
